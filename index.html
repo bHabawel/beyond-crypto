@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Beyond</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <div class="container-fluid shadow border rounded" id="content">
+        <h1 class="text-center">Beyond</h1>
+        <select id="sortSelector">
+          <option value="az">A-Z</option>
+          <option value="za">Z-A</option>
+          <option value="asc" selected>Market Rank (ASC)</option>
+          <option value="desc">Market Rank (DESC)</option>
+        </select>
+        <div class="container" id="spinner">
+          <svg
+            style="
+              left: 50%;
+              top: 50%;
+              position: absolute;
+              transform: translate(-50%, -50%) matrix(1, 0, 0, 1, 0, 0);
+            "
+            preserveAspectRatio="xMidYMid meet"
+            viewBox="0 0 187.3 93.7"
+            height="300px"
+            width="400px"
+          >
+            <path
+              d="M93.9,46.4c9.3,9.5,13.8,17.9,23.5,17.9s17.5-7.8,17.5-17.5s-7.8-17.6-17.5-17.5c-9.7,0.1-13.3,7.2-22.1,17.1 				c-8.9,8.8-15.7,17.9-25.4,17.9s-17.5-7.8-17.5-17.5s7.8-17.5,17.5-17.5S86.2,38.6,93.9,46.4z"
+              stroke-miterlimit="10"
+              stroke-linejoin="round"
+              stroke-linecap="round"
+              stroke-width="4"
+              fill="none"
+              id="outline"
+              stroke="#4E4FEB"
+            ></path>
+            <path
+              d="M93.9,46.4c9.3,9.5,13.8,17.9,23.5,17.9s17.5-7.8,17.5-17.5s-7.8-17.6-17.5-17.5c-9.7,0.1-13.3,7.2-22.1,17.1 				c-8.9,8.8-15.7,17.9-25.4,17.9s-17.5-7.8-17.5-17.5s7.8-17.5,17.5-17.5S86.2,38.6,93.9,46.4z"
+              stroke-miterlimit="10"
+              stroke-linejoin="round"
+              stroke-linecap="round"
+              stroke-width="4"
+              stroke="#4E4FEB"
+              fill="none"
+              opacity="0.05"
+              id="outline-bg"
+            ></path>
+          </svg>
+        </div>
+        <div class="container-fluid" id="crypto-container"></div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script src="index.js"></script>
+  </body>
+</html>

@@ -8,10 +8,25 @@ let apiArray;
 let sortArray = [];
 
 let sortValue = "asc";
+let updatedPhpCurrency = 0;
 sortSelector.value = sortValue;
+
+async function fetchCurrency() {
+  try {
+    let res = await fetch(
+      `https://v6.exchangerate-api.com/v6/900611a1da1301c96e0fea1a/pair/USD/PHP`
+    );
+    if (!res.ok) throw new Error("Could not fetch currency exchange");
+    let data = await res.json();
+    updatedPhpCurrency = data.conversion_rate;
+  } catch (err) {
+    console.log(err.message + "ERRROROROROROROOR");
+  }
+}
 
 async function fetchCrypto() {
   try {
+    await fetchCurrency();
     isLoading = true;
     isLoading ? (spinner.style.display = "inline-block") : "none";
     let res = await fetch(`https://api.coincap.io/v2/assets`);
@@ -46,7 +61,8 @@ function sortFilter() {
           <br/>
           Rank: ${(rank.innerHTML = items.rank)}
           <br/>
-          Market Price: $${(price.innerHTML = items.priceUsd)}
+          Market Price: ₱${(price.innerHTML =
+            items.priceUsd * updatedPhpCurrency)}
           <hr/>
         `;
       });
@@ -64,7 +80,8 @@ function sortFilter() {
           <br/>
           Rank: ${(rank.innerHTML = items.rank)}
           <br/>
-          Market Price: $${(price.innerHTML = items.priceUsd)}
+          Market Price: ₱${(price.innerHTML =
+            items.priceUsd * updatedPhpCurrency)}
           <hr/>
         `;
       });
@@ -82,7 +99,8 @@ function sortFilter() {
             <br/>
             Rank: ${(rank.innerHTML = items.rank)}
             <br/>
-            Market Price: $${(price.innerHTML = items.priceUsd)}
+            Market Price: ₱${(price.innerHTML =
+              items.priceUsd * updatedPhpCurrency)}
             <hr/>
           `;
       });
@@ -100,7 +118,8 @@ function sortFilter() {
               <br/>
               Rank: ${(rank.innerHTML = items.rank)}
               <br/>
-              Market Price: $${(price.innerHTML = items.priceUsd)}
+              Market Price: ₱${(price.innerHTML =
+                items.priceUsd * updatedPhpCurrency)}
               <hr/>
             `;
       });

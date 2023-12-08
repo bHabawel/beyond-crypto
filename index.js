@@ -32,6 +32,7 @@ async function fetchCrypto() {
     let res = await fetch(`https://api.coincap.io/v2/assets`);
     if (!res.ok) throw new Error("Could not fetch data");
     let data = await res.json();
+    console.log(data);
     apiArray = data;
 
     sortFilter();
@@ -56,15 +57,18 @@ function sortFilter() {
         let rank = document.createElement("p");
         let price = document.createElement("p");
         cryptoContainer.innerHTML += `
-        <img src = https://assets.coincap.io/assets/icons/${items.symbol.toLowerCase()}@2x.png />
-          ${(name.innerHTML = items.name)}
+          <img src = https://assets.coincap.io/assets/icons/${items.symbol.toLowerCase()}@2x.png 
+          alt = ${items.name.toString()} 
+          style = "width: ${items.id === "bitcoin-sv" ? "5rem" : ""}"/>
           <br/>
-          Rank: ${(rank.innerHTML = items.rank)}
-          <br/>
-          Market Price: ₱${(price.innerHTML =
-            items.priceUsd * updatedPhpCurrency)}
-          <hr/>
-        `;
+            ${(name.innerHTML = items.name)}
+            <br/>
+            Rank: ${(rank.innerHTML = items.rank)}
+            <br/>
+            Market Price: ₱${(price.innerHTML =
+              items.priceUsd * updatedPhpCurrency)}
+            <hr/>
+          `;
       });
       break;
     case "za":
@@ -75,15 +79,18 @@ function sortFilter() {
         let rank = document.createElement("p");
         let price = document.createElement("p");
         cryptoContainer.innerHTML += `
-        <img src = https://assets.coincap.io/assets/icons/${items.symbol.toLowerCase()}@2x.png />
-          ${(name.innerHTML = items.name)}
+          <img src = https://assets.coincap.io/assets/icons/${items.symbol.toLowerCase()}@2x.png 
+          alt = ${items.name.toString()} 
+          style = "width: ${items.id === "bitcoin-sv" ? "5rem" : ""}"/>
           <br/>
-          Rank: ${(rank.innerHTML = items.rank)}
-          <br/>
-          Market Price: ₱${(price.innerHTML =
-            items.priceUsd * updatedPhpCurrency)}
-          <hr/>
-        `;
+            ${(name.innerHTML = items.name)}
+            <br/>
+            Rank: ${(rank.innerHTML = items.rank)}
+            <br/>
+            Market Price: ₱${(price.innerHTML =
+              items.priceUsd * updatedPhpCurrency)}
+            <hr/>
+          `;
       });
       break;
     case "asc":
@@ -93,8 +100,12 @@ function sortFilter() {
         let name = document.createElement("h2");
         let rank = document.createElement("p");
         let price = document.createElement("p");
+        let id = document.createElement("p");
         cryptoContainer.innerHTML += `
-          <img src = https://assets.coincap.io/assets/icons/${items.symbol.toLowerCase()}@2x.png />
+          <img src = https://assets.coincap.io/assets/icons/${items.symbol.toLowerCase()}@2x.png 
+          alt = ${items.name.toString()} 
+          style = "width: ${items.id === "bitcoin-sv" ? "5rem" : ""}"/>
+          <br/>
             ${(name.innerHTML = items.name)}
             <br/>
             Rank: ${(rank.innerHTML = items.rank)}
@@ -113,15 +124,18 @@ function sortFilter() {
         let rank = document.createElement("p");
         let price = document.createElement("p");
         cryptoContainer.innerHTML += `
-            <img src = https://assets.coincap.io/assets/icons/${items.symbol.toLowerCase()}@2x.png />
-              ${(name.innerHTML = items.name)}
-              <br/>
-              Rank: ${(rank.innerHTML = items.rank)}
-              <br/>
-              Market Price: ₱${(price.innerHTML =
-                items.priceUsd * updatedPhpCurrency)}
-              <hr/>
-            `;
+          <img src = https://assets.coincap.io/assets/icons/${items.symbol.toLowerCase()}@2x.png 
+          alt = ${items.name.toString()} 
+          style = "width: ${items.id === "bitcoin-sv" ? "5rem" : ""}"/>
+          <br/>
+            ${(name.innerHTML = items.name)}
+            <br/>
+            Rank: ${(rank.innerHTML = items.rank)}
+            <br/>
+            Market Price: ₱${(price.innerHTML =
+              items.priceUsd * updatedPhpCurrency)}
+            <hr/>
+          `;
       });
       break;
   }

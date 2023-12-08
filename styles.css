@@ -38,3 +38,7 @@
     stroke-dashoffset: -240.34889px;
   }
 }
+
+.toggle {
+  filter: invert(100%);
+}

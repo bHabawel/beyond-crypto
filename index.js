@@ -3,6 +3,22 @@ let sortSelector = document.getElementById("sortSelector");
 let cryptoContainer = document.getElementById("crypto-container");
 let spinner = document.getElementById("spinner");
 let isLoading = false;
+let toggleMode = document.getElementById("toggleMode");
+
+toggleMode.addEventListener("click", () => {
+  if (toggleMode.innerHTML === "Light Mode") {
+    toggleMode.innerHTML = "Dark Mode";
+  } else {
+    toggleMode.innerHTML = "Light Mode";
+  }
+  document.querySelectorAll("*").forEach((element) => {
+    if (element.classList.contains("toggle")) {
+      element.classList.remove("toggle");
+    } else {
+      element.classList.add("toggle");
+    }
+  });
+});
 
 let apiArray;
 let sortArray = [];
